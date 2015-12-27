@@ -19,7 +19,6 @@ import sys
 #
 #  see https://docs.python.org/2/tutorial/index.html for python tutorials
 #
-#  San Diego Supercomputer Center copyright
 # --------------------------------------------------------------------------
 
 prev_word          = "  "                #initialize previous word  to blank string
