@@ -27,6 +27,7 @@ months             = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sep', 'N
 
 dates_to_output    = [] #an empty list to hold dates for a given word
 day_cnts_to_output = [] #an empty list of day counts for a given word
+curr_word_total_cnt = 0;
 # see https://docs.python.org/2/tutorial/datastructures.html for list details
 
 line_cnt           = 0  #count input lines
@@ -46,7 +47,7 @@ for line in sys.stdin:
     #   if so then print out list of dates and counts
     #----------------------------------------------------
     if curr_word != prev_word:
-
+        curr_word_total_cnt = 1; #its the first
         # -----------------------
 	#now write out the join result, but not for the first line input
         # -----------------------
@@ -57,7 +58,8 @@ for line in sys.stdin:
 	    dates_to_output   = []
             day_cnts_to_output = []
         prev_word = curr_word  #set up previous word for the next set of input lines
-
+    else:
+        curr_word_total_cnt += curr_word_total_cnt
 
     # ---------------------------------------------------------------
     #whether or not the join result was written out,
@@ -82,4 +84,3 @@ for line in sys.stdin:
 # ---------------------------------------------------------------
 for i in range(len(dates_to_output)):  #loop thru dates, indexes start at 0
     print('{0} {1} {2} {3}'.format(dates_to_output[i], prev_word, day_cnts_to_output[i], curr_word_total_cnt))
-	
